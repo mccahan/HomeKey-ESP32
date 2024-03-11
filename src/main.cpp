@@ -927,8 +927,6 @@ void setup() {
   new NFCAccess();
   new Service::HAPProtocolInformation();
   new Characteristic::Version();
-  homeSpan.setPairCallback(pairCallback);
-  homeSpan.setWifiCallback(wifiCallback);
   mqtt.connected_callback = [] {
     const char* TAG = "MQTT::connected_callback";
     LOG(D, "MQTT connected");
