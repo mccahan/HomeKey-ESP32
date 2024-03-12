@@ -21,25 +21,25 @@
 #include <LittleFS.h>
 
 
-#if __has_include("config.h")
-#include <config.h>
+#if __has_include(<hkConfig.h>)
+  #include <hkConfig.h>
 #else
-#define MQTT_HOST "0.0.0.0"
-#define MQTT_PORT 1883
-#define MQTT_CLIENTID "homekey_mqtt"
-#define MQTT_USERNAME "username"
-#define MQTT_PASSWORD "password"
-#define MQTT_AUTH_TOPIC "topic/auth"
-#define MQTT_SET_STATE_TOPIC "topic/set_state"
-#define MQTT_SET_TARGET_STATE_TOPIC "topic/set_target_state"
-#define MQTT_SET_CURRENT_STATE_TOPIC "topic/set_current_state"
-#define MQTT_STATE_TOPIC "topic/state"
-#define HK_CODE "46637726"
-#define LED_PIN 2
-#define OTA_PWD "homespan-ota"
-#define NAME "HK Lock"
-#define DISCOVERY "1"
-#define CONTROL_PIN 26
+  #define MQTT_HOST "0.0.0.0"
+  #define MQTT_PORT 1883
+  #define MQTT_CLIENTID "homekey_mqtt"
+  #define MQTT_USERNAME "username"
+  #define MQTT_PASSWORD "password"
+  #define MQTT_AUTH_TOPIC "topic/auth"
+  #define MQTT_SET_STATE_TOPIC "topic/set_state"
+  #define MQTT_SET_TARGET_STATE_TOPIC "topic/set_target_state"
+  #define MQTT_SET_CURRENT_STATE_TOPIC "topic/set_current_state"
+  #define MQTT_STATE_TOPIC "topic/state"
+  #define HK_CODE "46637726"
+  #define LED_PIN 2
+  #define OTA_PWD "homespan-ota"
+  #define NAME "HK Lock"
+  #define DISCOVERY "1"
+  #define CONTROL_PIN 26
 #endif
 
 using namespace nlohmann;
