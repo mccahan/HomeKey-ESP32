@@ -2,6 +2,9 @@
 
 Import("env")
 
+# Print environment variables
+print(env.Dump())
+
 APP_BIN = "$BUILD_DIR/${PROGNAME}.bin"
 MERGED_BIN = "$BUILD_DIR/merged-firmware.bin"
 BOARD_CONFIG = env.BoardConfig()
@@ -9,13 +12,7 @@ BOARD_CONFIG = env.BoardConfig()
 def merge_bin(source, target, env):
     # The list contains all extra images (bootloader, partitions, eboot) and
     # the final application binary
-    flash_images = [
-      "0x1000", "$BUILD_DIR/bootloader.bin",
-      "0x2000", "$BUILD_DIR/ota_data_initial.bin",
-      "0x8000", "$BUILD_DIR/partitions.bin",
-      "0x10000", "$BUILD_DIR/firmware.bin",
-    ]
-    # flash_images = env.Flatten(env.get("FLASH_EXTRA_IMAGES", [])) + ["$ESP32_APP_OFFSET", APP_BIN]
+    flash_images = env.Flatten(env.get("FLASH_EXTRA_IMAGES", [])) + ["$ESP32_APP_OFFSET", APP_BIN]
 
     # Run esptool to merge images into a single binary
     env.Execute(
