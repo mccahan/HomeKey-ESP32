@@ -7,10 +7,10 @@ name: ESP Web Tools Build
 on:
   push:
     branches: [ espwebtools ]
-    paths:
-      - 'src/**'
-      - 'platformio.ini'
-      - 'sdkconfig.defaults'
+#    paths:
+#      - 'src/**'
+#      - 'platformio.ini'
+#      - 'sdkconfig.defaults'
 
 jobs:
   build:
